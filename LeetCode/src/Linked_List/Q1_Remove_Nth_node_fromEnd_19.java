@@ -43,9 +43,7 @@ class Q1_Remove_Nth_node_fromEnd_19 {
         ListNode temp = dummy;
 
         int carry = 0;
-
         while (l1 != null || l2 != null || carry != 0) {
-
             int sum = carry;
 
             if (l1 != null) {
@@ -57,7 +55,6 @@ class Q1_Remove_Nth_node_fromEnd_19 {
                 sum += l2.val;
                 l2 = l2.next;
             }
-
             carry = sum / 10;
 
             temp.next = new ListNode(sum % 10);
