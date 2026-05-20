@@ -16,6 +16,7 @@ public class Q10_Shor_Distance_String_InCirularArray_2515 {
         int n = words.length;
 
         for (int i = 0; i < n; i++) {
+
             if (target.equals(words[i])) {
                 // main formule
 

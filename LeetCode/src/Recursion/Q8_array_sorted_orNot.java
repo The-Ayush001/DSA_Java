@@ -14,6 +14,7 @@ public class Q8_array_sorted_orNot {
         if(index == arr.length-1){
             return true;
         }
+
         return (arr[index] < arr[index+1] && sortOrNot(arr,index+1));
     }
 }

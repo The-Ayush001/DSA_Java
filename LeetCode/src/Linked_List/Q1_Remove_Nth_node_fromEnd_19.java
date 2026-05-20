@@ -60,6 +60,7 @@ class Q1_Remove_Nth_node_fromEnd_19 {
             temp.next = new ListNode(sum % 10);
             temp = temp.next;
         }
+
         return dummy.next;
     }
 }
