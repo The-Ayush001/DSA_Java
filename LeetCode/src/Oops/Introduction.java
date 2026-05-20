@@ -20,6 +20,7 @@ public class Introduction {
 
     // create a class
     class Student {
+
         int[] roll = new int[5];
         String[] name = new String[5];
         float[] marks = new float[5];

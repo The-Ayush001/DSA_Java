@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public class Q2_sumOf_element {
      public static void main() {
+
 //        Create a program to find the sum and average of all elements in an array.
          System.out.println("Sum & average of all element in array.");
          int arr[] ={1,2,3,4,5,6,7,8,9};

@@ -9,6 +9,7 @@ public class Q5_Duplicate_number_287 {
         System.out.println( dublicateNo(arr));
     }
     static int dublicateNo(int[] nums){
+
         int i=0;
         while(i < nums.length){
             if(nums[i] != i+1){
