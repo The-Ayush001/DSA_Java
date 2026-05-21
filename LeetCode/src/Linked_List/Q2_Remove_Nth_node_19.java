@@ -1,7 +1,7 @@
 package Linked_List;
 
 public class Q2_Remove_Nth_node_19 {
-
+    // give in leetcode
       public class ListNode {
       int val;
       ListNode next;
