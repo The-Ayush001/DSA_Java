@@ -35,7 +35,6 @@ public class Q5_Swap_Node_inPairs_24 {
             return dummy.next;
         }
 
-
         // Method: 2
         //  BY USING REACTION (TC: O(N))
 //        public ListNode swapPairs(ListNode head) {
