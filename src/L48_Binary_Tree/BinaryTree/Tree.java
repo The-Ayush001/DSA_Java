@@ -1,4 +1,4 @@
-package L48_Binary_Tree;
+package L48_Binary_Tree.BinaryTree;
 
 import java.util.Scanner;
 
@@ -10,5 +10,6 @@ public class Tree {
         tree.populate(scanner);
         tree.display();
         tree.prettyDisplay();
+
     }
 }
