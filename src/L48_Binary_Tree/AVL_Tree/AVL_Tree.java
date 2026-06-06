@@ -18,7 +18,6 @@ public class AVL_Tree {
             return 0;
         }
     }
-
     private Node root;
 
     public int height(Node node){
@@ -70,8 +69,63 @@ public class AVL_Tree {
         }
 
         node.height = Math.max(height(node.left), height(node.right))+1; // increasing the height
+        return rotare(node);
+    }
+//    Rotate the tree
+    public Node rotare(Node node){
+        // Left heavy
+        if(height(node.left) - height(node.right) > 1) {
+            if (height(node.left.left) - height(node.left.right) > 0) {
+                // left left case
+                return rightRotate(node);
+            }
+            if (height(node.left.left) - height(node.left.right) < 0) {
+                // left right case
+                node.left = leftRotate(node);
+                return rightRotate(node);
+            }
+        }
+
+        // Right heavy
+        if(height(node.right) - height(node.left) > 1){
+            if(height(node.right.right) - height(node.right.left) > 0){
+                // right right case
+                return leftRotate(node);
+            }
+            if(height(node.right.right) - height(node.right.left) < 0){
+                // right left case
+                node.right = rightRotate(node);
+                return leftRotate(node);
+            }
+        }
         return node;
     }
+    // rightRotate
+    public Node rightRotate(Node p){
+        Node c = p.left;
+        Node t = c.right;
+
+        c.right = p;
+        p.left = t;
+
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        c.height = Math.max(height(c.left), height(c.right) + 1);
+        return c;
+    }
+
+    // leftRotate
+    public Node leftRotate(Node c){
+        Node p = c.right;
+        Node t = p.left;
+
+        p.left = c;
+        c.right = t;
+        c.height = Math.max(height(c.left), height(c.right) + 1);
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+
+        return p;
+    }
+
 
     // BALANCED
     public boolean balanced(){
