@@ -46,13 +46,67 @@ public class segmentTree {
         String str = "";
 
         if(node.left != null){
-            str = str + "Interval=[" + node.left.startInterval + "-" + node.left.endInterval + "] and date: " + node.left.data + " => ";
+            str = str + "Interval=[" + node.left.startInterval + "-" + node.left.endInterval + "] and date: " + node.left.data + " ==> ";
         }
         else{
             str = str + "No left child";
         }
 
         //for current node
+        str = str + "Interval=[" + node.startInterval + "-" + node.endInterval + "] and date: " + node.data + " <== ";
+        if(node.right != null){
+            str = str + "Interval=[" + node.right.startInterval + "-" + node.right.endInterval + "] and date: " + node.right.data;
+        }
+        else{
+            str = str + "No right child";
+        }
+        System.out.println(str + "\n");
 
+        // call recursion
+        if(node.left != null){
+            display(node.left);
+        }
+        if(node.right != null){
+            display(node.right);
+        }
+    }
+    // query
+    public int query(int qsi, int qei){
+        return this.query(this.root, qsi, qei);
+    }
+    private int query(Node node, int qsi, int qei){
+        if(node.startInterval >= qsi && node.endInterval <= qei){
+            // node is completely lying inside query
+            return node.data;
+        }
+        else if(node.startInterval > qei || node.endInterval < qsi){
+            // completely outside
+            return 0;
+        }
+        else{
+            return this.query(node.left, qsi, qei) + this.query(node.right, qsi, qei);
+        }
+    }
+
+    // update
+    public void update(int index, int value){
+        this.root.data = update(this.root, index, value);
+    }
+    public int update(Node node, int index, int value){
+        if(index >= node.startInterval && index <= node.endInterval){
+
+            if(index == node.startInterval && index == node.endInterval){
+                node.data = value;
+                return node.data;
+            }
+            else{
+                int leftAns = update(node.left, index, value);
+                int rightAns = update(node.right, index, value);
+
+                node.data = leftAns + rightAns;
+                return node.data;
+            }
+        }
+        return node.data;
     }
 }
