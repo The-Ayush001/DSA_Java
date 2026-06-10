@@ -1,8 +1,8 @@
-package Arrays;
+package backtracking;
 
 import java.util.*;
 
-public class Q32_SubArray_ofSize_K {
+public class Q7_SubArray_ofSize_K {
     public static List<List<Integer>> list = new ArrayList<>();
 
     static void main() {
